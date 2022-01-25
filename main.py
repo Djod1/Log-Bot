@@ -1,3 +1,5 @@
+import os
+
 import discord
 from discord.ext import commands
 
@@ -40,7 +42,7 @@ async def on_message_delete(message):
 
 @bot.event
 async def on_voice_state_update(member, before, after):
-    embed=None
+    embed = None
     if before.channel is None:
         embed = discord.Embed(color=0x30d5c8)
         embed.add_field(name="🎵  | Голосовые каналы", value=f"{member.mention} зашел в канал {after.channel.mention}",
@@ -57,4 +59,6 @@ async def on_voice_state_update(member, before, after):
     else:
         return
     await bot.get_channel(id).send(embed=embed)
-bot.run('')
+
+
+bot.run(os.environ["TOKEN"])
