@@ -62,5 +62,4 @@ async def on_voice_state_update(member, before, after):
         return
     await bot.get_channel(id).send(embed=embed)
 
-
 bot.run(os.environ["TOKEN"])
